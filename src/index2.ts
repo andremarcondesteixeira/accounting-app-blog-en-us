@@ -1,20 +1,25 @@
-import { Ativo, Passivo, somar } from "./ativo_passivo";
-import dinheiro from "./dinheiro";
+// Example 2
+// You own a computer that is worth $5,000 if you sell it today.
+// You bought it for $7,500 and paid $4,000 so far.
+// Apart from that, you have $2,000 in your checkings account and $1,500 of bills to be paid.
 
-const ativo: Ativo[] = [
-    new Ativo("Computador", dinheiro("BRL", 5_000_00)),
-    new Ativo("Dinheiro na conta bancária", dinheiro("BRL", 2_000_00)),
+import { Asset, Liability, sum } from "./asset_liability";
+import money from "./money";
+
+const assets: Asset[] = [
+    new Asset("Computer", money("USD", 5_000_00)),
+    new Asset("Money in the checkings account", money("USD", 2_000_00)),
 ];
 
-const passivo: Passivo[] = [
-    new Passivo("Parcelas pendentes do computador", dinheiro("BRL", 3_500_00)),
-    new Passivo("Contas a pagar", dinheiro("BRL", 1_500_00)),
+const liabilities: Liability[] = [
+    new Liability("Installments payable for the computer", money("USD", 3_500_00)),
+    new Liability("Bills to be paid", money("USD", 1_500_00)),
 ];
 
-// No caso da pessoa física, o patrimônio líquido é quanto vale tudo o que você tem
-// menos suas dívidas
-const patrimonioLiquido: Passivo[] = [new Passivo("O que você realmente tem", dinheiro("BRL", 2_000_00))];
+// In the case of a person, the equity is how much money you actually have
+// It is the value of your assets subtracted by all your present and future expenses
+const equity: Liability[] = [new Liability("What you actually have", money("USD", 2_000_00))];
 
-const ladoEsquerdoDaEquacao = somar(ativo);
-const ladoDireitoDaEquacao = somar(passivo).adicionar(somar(patrimonioLiquido));
-expect(ladoEsquerdoDaEquacao.igualA(ladoDireitoDaEquacao)).toBe(true);
+const leftSideOfTheEquation = sum(assets);
+const rightSideOfTheEquation = sum(liabilities).add(sum(equity));
+expect(leftSideOfTheEquation.isEqualTo(rightSideOfTheEquation)).toBe(true);
