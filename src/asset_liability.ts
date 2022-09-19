@@ -28,5 +28,5 @@ export class Liability extends Priceable {
 export function sum(items: Priceable[]) {
     return items.reduce((total, item) => {
         return total.add(item.value);
-    }, money("BRL", 0));
+    }, money("USD", 0));
 }
