@@ -1,27 +1,9 @@
-# Express-Typescript With Tooling Boilerplate
+# Accounting for Developers
 
-## Prerequisites
+Hello!
 
-This boilerplate uses the "@tsconfig/node16-strictest/tsconfig.json" base tsconfig file.
-Because of that, it expects NodeJS >= 16.
+I am writing a series of blog posts about accounting, that are specifically tailored for developers.
 
-## What you get:
+You can start reading the blog posts [here](https://andre.pro/en-us/articles/accounting-for-developers-part-1.html)
 
--   Express
--   Typescript
--   Eslint with Typescript support
--   Jest with Typescript support
--   Prettier
--   Husky (formats your code before each commit using a package called "pretty-quick")
-
-## Recommendations:
-
-In Visual Studio Code, install the following extensions:
-
--   "EditorConfig for VS Code", from EditorConfig
--   "Prettier - Code Formatter", from Prettier
--   "ESLint", from Microsoft
-
-## Rationale
-
--   Since I use VSCode, and VSCode uses double quotes when automatically importing modules, I decided to use double-quotes by default for all strings
+You can check the code examples in the `src` folder.
